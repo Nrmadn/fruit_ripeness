@@ -1,0 +1,458 @@
+/* ============================================================
+   CUSTOM STYLING - FRUIT RIPENESS CLASSIFIER
+   ============================================================ */
+
+/* ============================================================
+   GENERAL STYLES
+   ============================================================ */
+
+:root {
+    --primary-green: #28a745;
+    --primary-green-dark: #218838;
+    --gradient-start: #56ab2f;
+    --gradient-end: #a8e063;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+
+.navbar {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   TITLE & GRADIENT TEXT
+   ============================================================ */
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.supported-fruits {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.badge-fruit {
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: #333;
+    border: 2px solid var(--primary-green);
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+    transition: all 0.3s ease;
+}
+
+.badge-fruit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(40, 167, 69, 0.3);
+}
+
+/* ============================================================
+   MAIN CARD
+   ============================================================ */
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* ============================================================
+   UPLOAD AREA
+   ============================================================ */
+
+.upload-area {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 3px dashed #28a745;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.upload-area:hover {
+    background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+    border-color: var(--primary-green-dark);
+    transform: scale(1.02);
+}
+
+.upload-area.drag-over {
+    background: rgba(40, 167, 69, 0.1);
+    border-color: var(--primary-green);
+    transform: scale(1.05);
+}
+
+.upload-icon i {
+    transition: transform 0.3s ease;
+}
+
+.upload-area:hover .upload-icon i {
+    transform: translateY(-10px) scale(1.1);
+}
+
+/* ============================================================
+   IMAGE PREVIEW
+   ============================================================ */
+
+.preview-container {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+#imagePreview {
+    max-height: 400px;
+    max-width: 100%;
+    object-fit: contain;
+    border: 4px solid var(--primary-green);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#imagePreview:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, var(--primary-green-dark), var(--gradient-start));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(40, 167, 69, 0.4);
+}
+
+.btn-outline-secondary {
+    border: 2px solid #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background: #6c757d;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* ============================================================
+   LOADING SPINNER
+   ============================================================ */
+
+.spinner-border {
+    border-width: 0.3rem;
+}
+
+/* ============================================================
+   RESULT SECTION
+   ============================================================ */
+
+#resultSection .card {
+    transition: all 0.3s ease;
+}
+
+#resultSection .card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+#fruitType {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#ripenessLevel {
+    font-size: 2rem;
+}
+
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
+
+.progress {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    font-size: 1rem;
+    font-weight: 700;
+    transition: width 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================================
+   CHART CONTAINER
+   ============================================================ */
+
+canvas {
+    max-height: 350px;
+    width: 100% !important;
+}
+
+/* ============================================================
+   INFO CARDS
+   ============================================================ */
+
+.info-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.icon-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover .icon-circle {
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-top {
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* ============================================================
+   BADGES
+   ============================================================ */
+
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    #imagePreview {
+        max-height: 250px !important;
+    }
+    
+    .btn-lg {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    #fruitType {
+        font-size: 1.8rem;
+    }
+    
+    #ripenessLevel {
+        font-size: 1.5rem;
+    }
+    
+    .icon-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .icon-circle i {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    
+    .badge-fruit {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .upload-area {
+        padding: 2rem 1rem !important;
+    }
+    
+    .upload-icon i {
+        font-size: 3rem !important;
+    }
+    
+    h4 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.shadow-sm {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important;
+}
+
+.shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.rounded-4 {
+    border-radius: 20px !important;
+}
+
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-green-dark);
+}
+
+/* ============================================================
+   SPECIAL EFFECTS
+   ============================================================ */
+
+.bg-gradient {
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%) !important;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================
+   PRINT STYLES (Optional)
+   ============================================================ */
+
+@media print {
+    body {
+        background: white;
+    }
+    
+    .navbar,
+    footer,
+    .btn {
+        display: none;
+    }
+    
+    #resultSection {
+        page-break-inside: avoid;
+    }
+}

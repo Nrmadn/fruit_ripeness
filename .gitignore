@@ -1,0 +1,28 @@
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# === Virtual environment ===
+venv/
+.env/
+
+# === Model files (bisa sangat besar, lebih baik upload manual ke Drive/GDrive) ===
+*.h5
+*.keras
+*.weights
+
+# === Temporary / output images ===
+static/uploads/
+*.png
+*.jpg
+*.jpeg
+
+# === Jupyter / log files ===
+.ipynb_checkpoints/
+*.log
+
+# === System files ===
+.DS_Store
+Thumbs.db
