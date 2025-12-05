@@ -200,13 +200,13 @@ Buka browser dan akses: http://localhost:5000
 ### 2. Training Model dari Awal
 
 python
-# Buka Jupyter Notebook
+ Buka Jupyter Notebook
 jupyter notebook
 
-# Jalankan notebooks secara berurutan:
-# 1. notebooks/01_eda.ipynb - Exploratory Data Analysis
-# 2. notebooks/02_preprocessing.ipynb - Data preparation
-# 3. notebooks/03_model_training.ipynb - Training & evaluation
+ Jalankan notebooks secara berurutan:
+ 1. notebooks/01_eda.ipynb - Exploratory Data Analysis
+ 2. notebooks/02_preprocessing.ipynb - Data preparation
+ 3. notebooks/03_model_training.ipynb - Training & evaluation
 
 
 Atau jalankan script training:
@@ -365,7 +365,7 @@ Dense(6, activation='softmax')  # Output layer
 
 ### Confusion Matrix Analysis
 
-
+```bash
 Predicted →
 Actual ↓   B_Men  B_Mat  B_TM  M_Men  M_SM  M_Mat
 B_Mentah    50     0      0     0      0     0    ✓ Perfect
@@ -374,7 +374,7 @@ B_TM         0     1     49     0      0     0
 M_Mentah     0     0      0    50      0     0    ✓ Perfect
 M_SM         0     0      0     0     48     2    
 M_Matang     0     0      0     0      2    48    
-
+```
 
 *Key Insights:*
 - Error rate hanya *2%* (6 kesalahan dari 300 prediksi)
