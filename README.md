@@ -47,7 +47,7 @@ Penelitian ini mengimplementasikan pre-trained MobileNet model dengan modifikasi
 
 ## 🗂 Struktur Repository
 
-
+```bash
 fruit_ripeness/
 ├── README.md                           # Dokumentasi utama
 ├── requirements.txt                    # Python dependencies
@@ -89,7 +89,7 @@ fruit_ripeness/
     ├── test_app.py                    # Flask app tests
     ├── test_model.py                  # Model inference tests
     └── test_preprocessing.py          # Preprocessing tests
-
+```
 
 ## 🚀 Quick Start
 
@@ -157,7 +157,7 @@ Akses aplikasi di: http://localhost:5000
 
 ### Struktur Dataset
 
-
+```bash
 data/
 ├── raw/
 │   ├── Banana/
@@ -174,7 +174,7 @@ data/
     ├── train/            # 1,200 images (80%)
     ├── validation/       # 300 images (20%)
     └── test/             # 300 images (20%)
-
+```
 
 ## 💻 Usage
 
@@ -488,7 +488,7 @@ pip install tensorflow-gpu==2.19.0
 
 ### Model Architecture
 
-
+```bash
 Input (224x224x3)
         ↓
 ┌───────────────────────┐
@@ -519,11 +519,11 @@ Dropout(0.3)
 Dense(6) + Softmax
         ↓
 Output (6 classes)
-
+```
 
 ### Web Application Architecture
 
-
+```bash
 ┌─────────────────┐
 │   Client        │
 │   (Browser)     │
@@ -559,7 +559,7 @@ Output (6 classes)
 │ • Distribution  │
 └─────────────────┘
 
-
+```
 ## 🧪 Testing
 
 ### Unit Tests
