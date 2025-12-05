@@ -112,10 +112,10 @@ cd fruit_ripeness
 bash
 python -m venv venv
 
-# Aktivasi di Windows
+### Aktivasi di Windows
 venv\Scripts\activate
 
-# Aktivasi di Linux/Mac
+### Aktivasi di Linux/Mac
 source venv/bin/activate
 
 
@@ -222,21 +222,21 @@ from tensorflow.keras.models import load_model
 import numpy as np
 from sklearn.metrics import classification_report, confusion_matrix
 
-# Load trained model
+### Load trained model
 model = load_model('model/mobilenet_model.h5')
 
-# Load test data (asumsi sudah di-preprocess)
+### Load test data (asumsi sudah di-preprocess)
 X_test, y_test = load_test_data()
 
-# Prediksi
+### Prediksi
 predictions = model.predict(X_test)
 predicted_classes = np.argmax(predictions, axis=1)
 true_classes = np.argmax(y_test, axis=1)
 
-# Evaluasi
+### Evaluasi
 print(classification_report(true_classes, predicted_classes))
 
-# Confusion Matrix
+### Confusion Matrix
 cm = confusion_matrix(true_classes, predicted_classes)
 plot_confusion_matrix(cm)
 
@@ -248,21 +248,21 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 
-# Load model
+### Load model
 model = load_model('model/mobilenet_model.h5')
 
-# Load dan preprocess gambar
+### Load dan preprocess gambar
 img_path = 'path/to/your/image.jpg'
 img = image.load_img(img_path, target_size=(224, 224))
 img_array = image.img_to_array(img) / 255.0
 img_array = np.expand_dims(img_array, axis=0)
 
-# Prediksi
+### Prediksi
 predictions = model.predict(img_array)
 predicted_class = np.argmax(predictions[0])
 confidence = predictions[0][predicted_class] * 100
 
-# Mapping kelas
+### Mapping kelas
 class_names = [
     'Banana_Matang', 'Banana_Mentah', 'Banana_Terlalu_Matang',
     'Mango_Matang', 'Mango_Mentah', 'Mango_Setengah_Matang'
@@ -277,7 +277,7 @@ print(f"Confidence: {confidence:.2f}%")
 python
 import requests
 
-# Upload image untuk prediksi
+### Upload image untuk prediksi
 url = 'http://localhost:5000/predict'
 files = {'file': open('banana.jpg', 'rb')}
 response = requests.post(url, files=files)
@@ -440,28 +440,28 @@ Penelitian menggunakan framework *CRISP-DM* (Cross-Industry Standard Process for
 ### Core Libraries
 
 txt
-# Deep Learning
+### Deep Learning
 tensorflow==2.19.0
 keras==3.7.0
 
-# Web Framework
+### Web Framework
 flask==3.0.0
 flask-cors==4.0.0
 
-# Data Processing
+### Data Processing
 numpy>=1.21.0
 pandas>=1.3.0
 pillow>=9.0.0
 
-# Machine Learning
+### Machine Learning
 scikit-learn>=0.24.0
 scipy>=1.7.0
 
-# Visualization
+### Visualization
 matplotlib>=3.4.0
 seaborn>=0.11.0
 
-# Utilities
+### Utilities
 python-dotenv>=0.19.0
 werkzeug>=3.0.0
 
@@ -469,18 +469,18 @@ werkzeug>=3.0.0
 ### Instalasi
 
 bash
-# Metode 1: Dari requirements.txt
+### Metode 1: Dari requirements.txt
 pip install -r requirements.txt
 
-# Metode 2: Install manual
+### Metode 2: Install manual
 pip install tensorflow keras flask numpy pandas pillow scikit-learn matplotlib seaborn
 
 
 ### Optional (untuk training dengan GPU)
 
 bash
-# CUDA Toolkit 11.8
-# cuDNN 8.6
+### CUDA Toolkit 11.8
+### cuDNN 8.6
 pip install tensorflow-gpu==2.19.0
 
 
@@ -565,10 +565,10 @@ Output (6 classes)
 ### Unit Tests
 
 bash
-# Jalankan semua tests
+### Jalankan semua tests
 pytest tests/
 
-# Test spesifik
+### Test spesifik
 pytest tests/test_model.py -v
 pytest tests/test_app.py -v
 pytest tests/test_preprocessing.py -v
@@ -598,7 +598,7 @@ Hasil testing aplikasi web (10 skenario):
 ### Local Deployment
 
 bash
-# Development mode
+### Development mode
 export FLASK_ENV=development
 export FLASK_DEBUG=1
 python app.py
@@ -607,11 +607,11 @@ python app.py
 ### Production Deployment
 
 bash
-# Using Gunicorn (recommended)
+### Using Gunicorn (recommended)
 pip install gunicorn
 gunicorn -w 4 -b 0.0.0.0:8000 app:app
 
-# Using Waitress (Windows-friendly)
+### Using Waitress (Windows-friendly)
 pip install waitress
 waitress-serve --port=8000 app:app
 
@@ -619,7 +619,7 @@ waitress-serve --port=8000 app:app
 ### Docker Deployment
 
 dockerfile
-# Dockerfile
+### Dockerfile
 FROM python:3.8-slim
 
 WORKDIR /app
@@ -635,7 +635,7 @@ CMD ["python", "app.py"]
 
 
 bash
-# Build dan run
+### Build dan run
 docker build -t fruit-ripeness .
 docker run -p 5000:5000 fruit-ripeness
 
@@ -670,7 +670,7 @@ Kontribusi sangat diterima! Berikut panduan kontribusi:
 
 1. *Fork repository ini*
 bash
-# Klik tombol "Fork" di GitHub
+### Klik tombol "Fork" di GitHub
 
 
 2. *Clone fork Anda*
